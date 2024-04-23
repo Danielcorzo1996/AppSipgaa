@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "238146014016",
+    "project_id": "appsipgaa",
+    "storage_bucket": "appsipgaa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:238146014016:android:c00f88c8e4f2c3802888a5",
+        "android_client_info": {
+          "package_name": "com.daniel.appsipgaa"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBYMT6ZNLtv004qokbqWcZ-W182CH1_j6Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

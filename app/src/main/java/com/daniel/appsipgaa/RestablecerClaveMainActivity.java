@@ -25,7 +25,7 @@ public class RestablecerClaveMainActivity extends AppCompatActivity {
         String cor = correo.getText().toString();
 
         if(TextUtils.isEmpty(cor)){
-            Toast.makeText(this, "Ingrega un Correo", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Ingresa un Correo", Toast.LENGTH_SHORT).show();
             return;
         }
     }

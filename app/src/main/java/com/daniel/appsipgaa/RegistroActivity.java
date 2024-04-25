@@ -10,16 +10,21 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+
 public class RegistroActivity extends AppCompatActivity {
 
     EditText usuario, clave, correo;
-
+    private FirebaseAuth auth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro);
 
-
+        auth = FirebaseAuth.getInstance();
         usuario = findViewById(R.id.usuarioRegistro);
         clave = findViewById(R.id.claveRegistro);
         correo = findViewById(R.id.correoRegistro);
@@ -37,12 +42,12 @@ public class RegistroActivity extends AppCompatActivity {
         }
 
         if(TextUtils.isEmpty(cla)){
-            Toast.makeText(this, "Ingrega una Clave", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Ingresa una Clave", Toast.LENGTH_SHORT).show();
             return;
         }
 
         if(TextUtils.isEmpty(cor)){
-            Toast.makeText(this, "Ingrega un Correo", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Ingresa un Correo", Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -51,6 +56,19 @@ public class RegistroActivity extends AppCompatActivity {
             return;
         }
 
+        auth.createUserWithEmailAndPassword(cor, cla)
+                .addOnCompleteListener(RegistroActivity.this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if(task.isSuccessful()){
+                            Toast.makeText(RegistroActivity.this, "Usuario registrado Con Exito",Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(RegistroActivity.this, LoginActivity.class));
+                        }else{
+                            Toast.makeText(RegistroActivity.this, "Error de Registro"+task.getException(),Toast.LENGTH_SHORT).show();
+
+                        }
+                    }
+                });
 
     }
 

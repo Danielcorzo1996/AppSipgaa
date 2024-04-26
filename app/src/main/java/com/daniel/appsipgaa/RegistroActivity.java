@@ -18,11 +18,14 @@ import com.google.firebase.auth.FirebaseAuth;
 public class RegistroActivity extends AppCompatActivity {
 
     EditText usuario, clave, correo;
+    Helpers helpers;
     private FirebaseAuth auth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro);
+
+        helpers = new Helpers();
 
         auth = FirebaseAuth.getInstance();
         usuario = findViewById(R.id.usuarioRegistro);
@@ -35,26 +38,20 @@ public class RegistroActivity extends AppCompatActivity {
         String usu = usuario.getText().toString();
         String cla = clave.getText().toString();
         String cor = correo.getText().toString();
+        String error;
 
-        if(TextUtils.isEmpty(usu)){
-            Toast.makeText(this, "Ingresa un Usuario", Toast.LENGTH_SHORT).show();
+        try {
+            error = helpers.checkFieldsOk(usu, cla, cor);
+            //ASÍ EXISTE UN ERROR NO CONTINUA
+            if(!error.isEmpty()){
+                Toast.makeText(this, error, Toast.LENGTH_SHORT).show();
+                return;
+            }
+        }catch (Exception ex){
+            System.out.println(ex.getMessage());
             return;
         }
 
-        if(TextUtils.isEmpty(cla)){
-            Toast.makeText(this, "Ingresa una Clave", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        if(TextUtils.isEmpty(cor)){
-            Toast.makeText(this, "Ingresa un Correo", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        if(cla.length() < 6){
-            Toast.makeText(this, "Clave minimo 6 caracteres!", Toast.LENGTH_SHORT).show();
-            return;
-        }
 
         auth.createUserWithEmailAndPassword(cor, cla)
                 .addOnCompleteListener(RegistroActivity.this, new OnCompleteListener<AuthResult>() {

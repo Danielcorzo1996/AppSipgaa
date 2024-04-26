@@ -18,7 +18,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class RegistroActivity extends AppCompatActivity {
 
     EditText usuario, clave, correo;
-    Helpers helpers;
+    IHelpers helpers;
     private FirebaseAuth auth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

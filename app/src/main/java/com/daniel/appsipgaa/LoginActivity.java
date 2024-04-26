@@ -18,12 +18,15 @@ import com.google.firebase.auth.FirebaseAuth;
 public class LoginActivity extends AppCompatActivity {
 
     EditText correo, clave;
+    IHelpers helpers;
     private FirebaseAuth auth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        helpers = new Helpers();
 
         auth = FirebaseAuth.getInstance();
         correo = findViewById(R.id.correoLogin);
@@ -36,15 +39,20 @@ public class LoginActivity extends AppCompatActivity {
         String cor = correo.getText().toString();
         String cla = clave.getText().toString();
 
-        if(TextUtils.isEmpty(cor)){
-            Toast.makeText(this, "Ingresa un Correo", Toast.LENGTH_SHORT).show();
+        String error;
+
+        try {
+            error = helpers.checkFieldsOk(null, cla, cor);
+            //ASÍ EXISTE UN ERROR NO CONTINUA
+            if(!error.isEmpty()){
+                Toast.makeText(this, error, Toast.LENGTH_SHORT).show();
+                return;
+            }
+        }catch (Exception ex){
+            System.out.println(ex.getMessage());
             return;
         }
 
-        if(TextUtils.isEmpty(cla)){
-            Toast.makeText(this, "Ingresa una Clave", Toast.LENGTH_SHORT).show();
-
-        }
 
         auth.signInWithEmailAndPassword(cor, cla)
                 .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {

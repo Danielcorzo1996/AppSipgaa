@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#CED3DC"
+    tools:context=".CustomListView">
+
+    <ImageView
+        android:id="@+id/imageIcon"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.051"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="87dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:gravity="center"
+        android:text="my text"
+        android:textSize="15dp"
+        app:layout_constraintStart_toEndOf="@+id/imageIcon"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewValor"
+        android:layout_width="88dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="56dp"
+        android:gravity="center"
+        android:text="$ 100.000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/imageIcon"
+        app:layout_constraintTop_toTopOf="@+id/ratingBar" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="48dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="28dp"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.858"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="230dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="4dp"
+        android:numStars="5"
+        android:rating="5"
+        android:scaleX="0.3"
+        android:scaleY="0.3"
+        android:stepSize="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextNumberDecimal"
+        android:layout_width="49dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="36dp"
+        android:ems="10"
+        android:gravity="center"
+        android:inputType="numberDecimal"
+        android:textSize="15dp"
+        android:text="0"
+        app:layout_constraintEnd_toStartOf="@+id/button"
+        app:layout_constraintHorizontal_bias="0.904"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="67dp"
+        android:text="Unidades"
+        android:textSize="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/button"
+        app:layout_constraintHorizontal_bias="0.889"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.daniel.appsipgaa.globalInfo.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -59,8 +60,11 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
+                            User user = User.getInstance();
+                            user.setEmail(cor);
                             Toast.makeText(LoginActivity.this, "Bienvenido",Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(LoginActivity.this, MenuActivity.class));
+                            //startActivity(new Intent(LoginActivity.this, MenuActivity.class));
+                            startActivity(new Intent(LoginActivity.this, Tienda.class));
                         }else{
                             Toast.makeText(LoginActivity.this, "Error de Ingreso"+task.getException(),Toast.LENGTH_SHORT).show();
 

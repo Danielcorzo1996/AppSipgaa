@@ -74,10 +74,10 @@ public class HelpersJUnitTest {
         IHelpers helpers = new Helpers();
         String error = "";
 
-        error = helpers.checkFieldsOk(null,"","1");
+        error = helpers.checkFieldsOk(null,"","test@mail.com");
         assertEquals("Ingresa una Clave", error);
 
-        error = helpers.checkFieldsOk("italo1234","123","1");
+        error = helpers.checkFieldsOk("italo1234","123","test@mail.com");
         assertEquals("Clave minimo 6 caracteres!", error);
     }
 

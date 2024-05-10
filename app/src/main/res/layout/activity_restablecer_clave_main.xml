@@ -39,7 +39,7 @@
 
 
     <Button
-        android:id="@+id/botonRectablecerCorreo"
+        android:id="@+id/botonRestablecerCorreo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -70,10 +70,10 @@
         android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/botonRectablecerCorreo"
+        app:layout_constraintEnd_toEndOf="@+id/botonRestablecerCorreo"
         app:layout_constraintHorizontal_bias="0.476"
-        app:layout_constraintStart_toStartOf="@+id/botonRectablecerCorreo"
-        app:layout_constraintTop_toBottomOf="@+id/botonRectablecerCorreo"
+        app:layout_constraintStart_toStartOf="@+id/botonRestablecerCorreo"
+        app:layout_constraintTop_toBottomOf="@+id/botonRestablecerCorreo"
         app:layout_constraintVertical_bias="0.085" />
 
 

@@ -16,6 +16,9 @@
         android:theme="@style/Theme.AppSipgaa"
         tools:targetApi="31">
         <activity
+            android:name=".ModuloUsuarios"
+            android:exported="false" />
+        <activity
             android:name=".CarritoFragment"
             android:exported="false" />
         <activity
@@ -29,9 +32,7 @@
             android:exported="false" />
         <activity
             android:name=".Tienda"
-            android:exported="false">
-
-        </activity>
+            android:exported="false"></activity>
         <activity
             android:name=".MenuActivity"
             android:exported="false" />
@@ -40,7 +41,7 @@
             android:exported="true" />
         <activity
             android:name=".LoginActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
